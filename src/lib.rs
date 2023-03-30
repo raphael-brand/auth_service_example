@@ -18,6 +18,10 @@ fn login(creds: Credentials) {
     get_user();
 }
 
+fn logout() {
+    // log user out ...
+}
 fn get_user() {
     // get user form database ...
 }
+
