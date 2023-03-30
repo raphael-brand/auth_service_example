@@ -1,10 +1,10 @@
 #![allow(dead_code, unused_variables)]
 
 mod database;
-use database::database::*;
+use database::*;
 
 mod auth_utils {
-    use crate::database::database;
+    use crate::database;
 
     pub fn login(creds: models::Credentials) {
         database::get_user();
