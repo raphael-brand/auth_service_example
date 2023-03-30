@@ -1,27 +1,35 @@
 #![allow(dead_code, unused_variables)]
-struct Credentials {
+
+
+pub struct Credentials {
     username: String,
     password: String,
 }
 
-fn authenticate(creds: Credentials) {
-    if let Status::Connected = connect_to_database() {
+mod database {
+    pub enum Status {
+        Connected,
+        Interrupted,
+    }
+    pub fn connect_to_database() -> Status {
+        return Status::Connected;
+    }
+}
+
+pub fn authenticate(creds: Credentials) {
+    use crate::database::connect_to_database;
+    if let database::Status::Connected = connect_to_database() {
         login(creds);
     }
 }
 
-fn connect_to_database() -> Status {
-    return Status::Connected;
-}
-
-fn login(creds: Credentials) {
+pub fn login(creds: Credentials) {
     get_user();
 }
 
-fn logout() {
+pub fn logout() {
     // log user out ...
 }
-fn get_user() {
+pub fn get_user() {
     // get user form database ...
 }
-
