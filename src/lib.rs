@@ -13,6 +13,9 @@ mod database {
     pub fn connect_to_database() -> Status {
         return Status::Connected;
     }
+    pub fn get_user() {
+        // get user form database ...
+    }
 }
 
 pub fn authenticate(creds: Credentials) {
@@ -28,7 +31,4 @@ pub fn login(creds: Credentials) {
 
 pub fn logout() {
     // log user out ...
-}
-pub fn get_user() {
-    // get user form database ...
 }
