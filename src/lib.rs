@@ -18,17 +18,19 @@ mod database {
     }
 }
 
+mod auth_utils {
+    pub fn login(creds: Credentials) {
+        get_user();
+    }
+
+    pub fn logout() {
+        // log user out ...
+    }
+}
+
 pub fn authenticate(creds: Credentials) {
     use crate::database::connect_to_database;
     if let database::Status::Connected = connect_to_database() {
         login(creds);
     }
-}
-
-pub fn login(creds: Credentials) {
-    get_user();
-}
-
-pub fn logout() {
-    // log user out ...
 }
