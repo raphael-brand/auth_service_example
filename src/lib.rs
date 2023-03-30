@@ -1,6 +1,5 @@
 #![allow(dead_code, unused_variables)]
 
-
 pub struct Credentials {
     username: String,
     password: String,
