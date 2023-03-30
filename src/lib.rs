@@ -1,10 +1,5 @@
 #![allow(dead_code, unused_variables)]
 
-pub struct Credentials {
-    username: String,
-    password: String,
-}
-
 mod database {
     pub enum Status {
         Connected,
@@ -19,18 +14,25 @@ mod database {
 }
 
 mod auth_utils {
-    pub fn login(creds: Credentials) {
-        get_user();
+    pub fn login(creds: models::Credentials) {
+        crate::database::get_user();
     }
 
     pub fn logout() {
         // log user out ...
     }
-}
 
+    pub mod models {
+        pub struct Credentials {
+            username: String,
+            password: String,
+        }
+    }
+}
+use auth_utils::models::Credentials;
+use database::Status;
 pub fn authenticate(creds: Credentials) {
-    use crate::database::connect_to_database;
-    if let database::Status::Connected = connect_to_database() {
-        login(creds);
+    if let Status::Connected = database::connect_to_database() {
+        auth_utils::login(creds);
     }
 }
