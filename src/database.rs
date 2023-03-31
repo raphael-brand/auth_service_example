@@ -7,4 +7,5 @@ pub fn connect_to_database() -> Status {
 }
 pub fn get_user() {
     // get user form database ...
+    println!("fetching user from db ...");
 }
