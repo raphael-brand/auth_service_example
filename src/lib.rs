@@ -11,3 +11,7 @@ pub fn authenticate(creds: Credentials) {
         auth_utils::login(creds);
     }
 }
+
+pub fn create_credentials(user: String, passwd: String) -> Credentials {
+    return Credentials {username: user, password: passwd};
+}
