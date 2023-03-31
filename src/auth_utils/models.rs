@@ -1,4 +1,4 @@
 pub struct Credentials {
-    username: String,
-    password: String,
+    pub username: String,
+    pub password: String,
 }
